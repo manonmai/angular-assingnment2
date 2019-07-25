@@ -1,0 +1,79 @@
+<div>Angular 2 Operation</div>
+<div class="Details">
+    <div>
+    <label>ID</label>
+    <input type="text" class="form-control" [(ngModel)] = "id">
+</div>
+<div>
+    <label>Name</label>
+    <input type="text" class="form-control" [(ngModel)] = "name">
+</div>
+<div>
+    <label>Salary</label>
+    <input type="text" class="form-control" [(ngModel)] = "salary">
+</div>
+</div>
+<div>
+    <label>Department</label>
+    <input type="text" class="form-control" [(ngModel)] = "department">
+
+</div>
+<div>
+{{id}} {{name}} {{salary}} {{department}}
+</div>
+<button class ="btn btn-primary" (click)="display()"> Submit </button>
+<table>
+    <thead>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>SALARY</th>
+        <th>DEPARTMENT</th>
+        <th colspan="2">Action</th>
+    </thead>
+    <!-- <tbody>
+        <tr *ngFor = "let data of employee">
+            <td>{{data.id}}</td>
+            <td>
+                    <input type="text" [(ngModel)]="data.name" [disabled]="!data.isEdit"/>
+            </td>
+            <td><input type="text" [(ngModel)]="data.salary" [disabled]="!data.isEdit"/></td>
+            <td><input type="text" [(ngModel)]="data.department" [disabled]="!data.isEdit"/></td>
+            <td>
+                    <button (click)="data.isEdit=!data.isEdit" *ngIf="!data.isEdit">Edit</button>
+                    <button *ngIf="data.isEdit" (click)="data.isEdit=!data.isEdit">Save</button>
+                    
+                 </td>
+            <td>
+                <button (click) = "delete(data)">Delet</button>
+            </td>
+        </tr>
+
+    </tbody> -->
+    <tbody>
+            <tr *ngFor = "let data of employee">
+                <td>{{data.id}}</td>
+                <td>
+                        <div *ngIf="!data.isEdit"> {{data.name}}</div>
+                        <input  type="text" [(ngModel)]="data.name" *ngIf="data.isEdit" />
+                   
+                </td>
+                <td>
+                    <div *ngIf="!data.isEdit"> {{data.salary}}</div>
+                    <input type="text" [(ngModel)]="data.salary" *ngIf="data.isEdit"/>
+                </td>
+                <td>
+                    <div *ngIf="!data.isEdit"> {{data.department}}</div>
+                    <input type="text" [(ngModel)]="data.department" *ngIf="data.isEdit"/></td>
+                <td>
+                        <button (click)="data.isEdit=!data.isEdit" *ngIf="!data.isEdit">Edit</button>
+                        <button *ngIf="data.isEdit" (click)="data.isEdit=!data.isEdit">Save</button>
+                        
+                     </td>
+                <td>
+                    <button (click) = "delete(data)">Delet</button>
+                </td>
+            </tr>
+    
+        </tbody>
+</table>
+<button (click)="addDetails()">ADD</button>
